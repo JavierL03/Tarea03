@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>DivisApp 24003544</ion-title>
+    <!--             ^^^^^^^^^^
+         AQUÍ TU NÚMERO DE CARNET -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>Conversor de Quetzales a Dólares</h2>
+  <p>
+    Ingrese una cantidad en quetzales; se convertirá usando la tasa fija
+    de 8 quetzales por dólar.
+  </p>
+
+  <ion-item>
+    <ion-label position="floating">Cantidad en quetzales (Q)</ion-label>
+    <ion-input type="number" [(ngModel)]="quetzales"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="convertir()">
+    Convertir a dólares
+  </ion-button>
+
+  <ion-card *ngIf="dolares !== null">
+    <ion-card-header>
+      <ion-card-title>Resultado</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Quetzales: <strong>Q {{ quetzales }}</strong></p>
+      <p>
+        Equivalente en dólares:
+        <strong>$ {{ dolares | number: '1.2-2' }}</strong>
+      </p>
+      <p>Tasa usada: <strong>1 USD = 8 Q</strong></p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
